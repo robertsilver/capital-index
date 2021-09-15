@@ -1,0 +1,5 @@
+C:\Projects\capital-index\capital-index-utils\bin\Debug\capital-index-utils.dll
+C:\Projects\capital-index\capital-index-utils\bin\Debug\capital-index-utils.pdb
+C:\Projects\capital-index\capital-index-utils\obj\Debug\capital-index-utils.csproj.CoreCompileInputs.cache
+C:\Projects\capital-index\capital-index-utils\obj\Debug\capital-index-utils.dll
+C:\Projects\capital-index\capital-index-utils\obj\Debug\capital-index-utils.pdb

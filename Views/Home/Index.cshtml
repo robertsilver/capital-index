@@ -1,0 +1,124 @@
+﻿
+@using capital_index.Models.Enums
+@using capital_index.Extensions
+
+@model List<capital_index.Models.GroupedData>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+<h2>Results</h2>
+<table class="tstyle" style="width:400px;">
+    <thead>
+        <tr>
+            <th class=thead>
+                Country
+            </th>
+            <th>
+                Total Amount (EUR)
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var m in Model)
+        {
+            <tr class="accordion">
+                <td style="cursor: pointer;">@m.Country.GetEnumDisplayName()</td>
+                <td>@m.TotalAmountEur.ToString("#,#0.00")</td>
+            </tr>
+            <tr style="">
+                <td colspan="2">
+                    <table>
+                        @test(m.Country)
+                    </table>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@helper test(Countries country)
+{
+    switch (country)
+    {
+        case Countries.Australia:
+            <tr>
+                <td>
+                    Australia
+                </td>
+            </tr>
+            break;
+        case Countries.EU:
+            <tr>
+                <td>
+                    Austria
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Italy
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Belgium
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Latvia
+                </td>
+            </tr>
+            break;
+        case Countries.ROW:
+            <tr>
+                <td>
+                    Chile
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Qatar
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    United Arab Emirates
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    United States of America
+                </td>
+            </tr>
+            break;
+        case Countries.SouthAfrica:
+            <tr>
+                <td>
+                    South Africa
+                </td>
+            </tr>
+            break;
+        case Countries.UnitedKingdom:
+            <tr>
+                <td>
+                    United Kingdom
+                </td>
+            </tr>
+            break;
+    }
+}
+
+<script>
+    $(function () {
+        $(".tstyle > tbody > tr:not(.accordion)").hide();
+        $(".tstyle tr:first-child").show();
+        $(".tstyle tr.accordion").click(function () {
+            $(this).next().fadeToggle();
+        });
+    });
+</script>
